@@ -49,6 +49,13 @@ namespace WebRequest.Elegant
 
         public WebRequest(
             Uri uri,
+            params IResponse[] responses
+        ) : this(uri, new Route(responses))
+        {
+        }
+        
+        public WebRequest(
+            Uri uri,
             IRoute route
         ) : this(uri, new RoutedHttpMessageHandler(route))
         {

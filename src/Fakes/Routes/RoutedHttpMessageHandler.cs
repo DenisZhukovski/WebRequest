@@ -11,6 +11,15 @@ namespace WebRequest.Elegant.Fakes
         /// <summary>
         /// Initializes a new instance of the <see cref="RoutedHttpMessageHandler"/> class.
         /// </summary>
+        /// <param name="responses">The collection of responses for http requests.</param>
+        public RoutedHttpMessageHandler(params IResponse[] responses)
+            : this(new Route(responses))
+        {
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoutedHttpMessageHandler"/> class.
+        /// </summary>
         /// <param name="requestRoute">Manages the responses for http requests.</param>
         public RoutedHttpMessageHandler(IRoute requestRoute)
             : this(requestRoute, new HttpClientHandler())
